@@ -20,9 +20,9 @@
 # Extension version
 %global fileinfover 1.0.5
 %global pharver     2.0.2
-%global zipver      1.12.4
+%global zipver      1.12.5
 %global jsonver     1.2.1
-%global opcachever  7.0.4-dev
+%global opcachever  7.0.6-dev
 
 # Adds -z now to the linker flags
 %global _hardened_build 1
@@ -95,7 +95,7 @@ Name: %{?scl_prefix}php
 %else
 Name: php56
 %endif
-Version: 5.6.7
+Version: 5.6.12
 Release: 1%{?rcver:.%{rcver}}%{?dist}
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -131,7 +131,7 @@ Patch21: php-5.4.7-odbctimer.patch
 
 # Functional changes
 Patch40: php-5.4.0-dlopen.patch
-Patch42: php-5.3.1-systzdata-v10.patch
+#Patch42: php-5.3.1-systzdata-v10.patch
 # See http://bugs.php.net/53436
 Patch43: php-5.4.0-phpize.patch
 # Use -lldap_r for OpenLDAP
@@ -978,7 +978,7 @@ support for using the enchant library to PHP.
 %patch21 -p1 -b .odbctimer
 
 %patch40 -p1 -b .dlopen
-%patch42 -p1 -b .systzdata
+#%patch42 -p1 -b .systzdata
 %patch43 -p1 -b .phpize
 %if 0%{?fedora} >= 18 || 0%{?rhel} >= 7
 %patch45 -p1 -b .ldap_r
